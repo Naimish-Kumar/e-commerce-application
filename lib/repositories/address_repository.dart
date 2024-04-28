@@ -143,7 +143,6 @@ class AddressRepository {
     final response = await ApiRequest.post(url:url,
         headers: {
           "Content-Type": "application/json",
-          "Content-Type": "application/json",
           "Authorization": "Bearer ${access_token.$}"
         },
         body: postBody,

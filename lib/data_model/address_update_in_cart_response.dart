@@ -4,9 +4,11 @@
 
 import 'dart:convert';
 
-AddressUpdateInCartResponse addressUpdateInCartResponseFromJson(String str) => AddressUpdateInCartResponse.fromJson(json.decode(str));
+AddressUpdateInCartResponse addressUpdateInCartResponseFromJson(String str) =>
+    AddressUpdateInCartResponse.fromJson(json.decode(str));
 
-String addressUpdateInCartResponseToJson(AddressUpdateInCartResponse data) => json.encode(data.toJson());
+String addressUpdateInCartResponseToJson(AddressUpdateInCartResponse data) =>
+    json.encode(data.toJson());
 
 class AddressUpdateInCartResponse {
   AddressUpdateInCartResponse({
@@ -17,13 +19,14 @@ class AddressUpdateInCartResponse {
   bool? result;
   String? message;
 
-  factory AddressUpdateInCartResponse.fromJson(Map<String, dynamic> json) => AddressUpdateInCartResponse(
-    result: json["result"],
-    message: json["message"],
-  );
+  factory AddressUpdateInCartResponse.fromJson(Map<String, dynamic> json) =>
+      AddressUpdateInCartResponse(
+        result: json["result"],
+        message: json["message"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "result": result,
-    "message": message,
-  };
+        "result": result,
+        "message": message,
+      };
 }

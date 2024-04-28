@@ -1,13 +1,11 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class LangText{
-
+class LangText {
   BuildContext context;
-late  AppLocalizations local;
+  late AppLocalizations local;
 
-  LangText(this.context){
-   local= AppLocalizations.of(context)!;
+  LangText(this.context) {
+    local = AppLocalizations.of(context)!;
   }
 }

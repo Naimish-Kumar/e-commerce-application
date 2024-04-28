@@ -1,19 +1,12 @@
-
-
-
 import 'package:active_ecommerce_flutter/repositories/cart_repository.dart';
 import 'package:flutter/material.dart';
 
-class CartCounter extends ChangeNotifier{
+class CartCounter extends ChangeNotifier {
+  int cartCounter = 0;
 
-  int cartCounter=0;
-
-
-
-  getCount()async{
+  getCount() async {
     var res = await CartRepository().getCartCount();
     cartCounter = res.count;
     notifyListeners();
   }
-
 }

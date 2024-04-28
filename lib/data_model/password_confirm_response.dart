@@ -4,9 +4,11 @@
 
 import 'dart:convert';
 
-PasswordConfirmResponse passwordConfirmResponseFromJson(String str) => PasswordConfirmResponse.fromJson(json.decode(str));
+PasswordConfirmResponse passwordConfirmResponseFromJson(String str) =>
+    PasswordConfirmResponse.fromJson(json.decode(str));
 
-String passwordConfirmResponseToJson(PasswordConfirmResponse data) => json.encode(data.toJson());
+String passwordConfirmResponseToJson(PasswordConfirmResponse data) =>
+    json.encode(data.toJson());
 
 class PasswordConfirmResponse {
   PasswordConfirmResponse({
@@ -17,13 +19,14 @@ class PasswordConfirmResponse {
   bool? result;
   String? message;
 
-  factory PasswordConfirmResponse.fromJson(Map<String, dynamic> json) => PasswordConfirmResponse(
-    result: json["result"],
-    message: json["message"],
-  );
+  factory PasswordConfirmResponse.fromJson(Map<String, dynamic> json) =>
+      PasswordConfirmResponse(
+        result: json["result"],
+        message: json["message"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "result": result,
-    "message": message,
-  };
+        "result": result,
+        "message": message,
+      };
 }

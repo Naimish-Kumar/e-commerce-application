@@ -4,7 +4,8 @@
 
 import 'dart:convert';
 
-LogoutResponse logoutResponseFromJson(String str) => LogoutResponse.fromJson(json.decode(str));
+LogoutResponse logoutResponseFromJson(String str) =>
+    LogoutResponse.fromJson(json.decode(str));
 
 String logoutResponseToJson(LogoutResponse data) => json.encode(data.toJson());
 
@@ -18,12 +19,12 @@ class LogoutResponse {
   String? message;
 
   factory LogoutResponse.fromJson(Map<String, dynamic> json) => LogoutResponse(
-    result: json["result"],
-    message: json["message"],
-  );
+        result: json["result"],
+        message: json["message"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "result": result,
-    "message": message,
-  };
+        "result": result,
+        "message": message,
+      };
 }

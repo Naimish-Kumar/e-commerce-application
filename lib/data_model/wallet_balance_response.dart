@@ -5,9 +5,11 @@
 
 import 'dart:convert';
 
-WalletBalanceResponse walletBalanceResponseFromJson(String str) => WalletBalanceResponse.fromJson(json.decode(str));
+WalletBalanceResponse walletBalanceResponseFromJson(String str) =>
+    WalletBalanceResponse.fromJson(json.decode(str));
 
-String walletBalanceResponseToJson(WalletBalanceResponse data) => json.encode(data.toJson());
+String walletBalanceResponseToJson(WalletBalanceResponse data) =>
+    json.encode(data.toJson());
 
 class WalletBalanceResponse {
   WalletBalanceResponse({
@@ -18,13 +20,14 @@ class WalletBalanceResponse {
   String? balance;
   String? last_recharged;
 
-  factory WalletBalanceResponse.fromJson(Map<String, dynamic> json) => WalletBalanceResponse(
-    balance: json["balance"],
-    last_recharged: json["last_recharged"],
-  );
+  factory WalletBalanceResponse.fromJson(Map<String, dynamic> json) =>
+      WalletBalanceResponse(
+        balance: json["balance"],
+        last_recharged: json["last_recharged"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "balance": balance,
-    "last_recharged": last_recharged,
-  };
+        "balance": balance,
+        "last_recharged": last_recharged,
+      };
 }

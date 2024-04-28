@@ -46,16 +46,14 @@ class _ClassifiedProductEditState extends State<ClassifiedProductEdit> {
   bool isProductDetailsInit = false;
 
   // controllers
-  TextEditingController productNameEditTextController = TextEditingController();
-  TextEditingController unitEditTextController = TextEditingController();
-  TextEditingController tagEditTextController = TextEditingController();
-  TextEditingController locationTextController = TextEditingController();
-  TextEditingController metaTitleTextController = TextEditingController();
-  TextEditingController metaDescriptionEditTextController =
-      TextEditingController();
-  TextEditingController videoLinkController = TextEditingController();
-  TextEditingController unitPriceEditTextController =
-      TextEditingController(text: "0");
+  final productNameEditTextController = TextEditingController();
+  final unitEditTextController = TextEditingController();
+  final tagEditTextController = TextEditingController();
+  final locationTextController = TextEditingController();
+  final metaTitleTextController = TextEditingController();
+  final metaDescriptionEditTextController = TextEditingController();
+  final videoLinkController = TextEditingController();
+  final unitPriceEditTextController = TextEditingController(text: "0");
 
   GlobalKey<FlutterSummernoteState> productDescriptionKey = GlobalKey();
 

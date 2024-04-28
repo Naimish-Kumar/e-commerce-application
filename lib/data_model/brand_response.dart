@@ -4,7 +4,8 @@
 // https://app.quicktype.io/
 import 'dart:convert';
 
-BrandResponse brandResponseFromJson(String str) => BrandResponse.fromJson(json.decode(str));
+BrandResponse brandResponseFromJson(String str) =>
+    BrandResponse.fromJson(json.decode(str));
 
 String brandResponseToJson(BrandResponse data) => json.encode(data.toJson());
 
@@ -22,18 +23,18 @@ class BrandResponse {
   int? status;
 
   factory BrandResponse.fromJson(Map<String, dynamic> json) => BrandResponse(
-    brands: List<Brands>.from(json["data"].map((x) => Brands.fromJson(x))),
-    meta: json["meta"] == null ? null : Meta.fromJson(json["meta"]),
-    success: json["success"],
-    status: json["status"],
-  );
+        brands: List<Brands>.from(json["data"].map((x) => Brands.fromJson(x))),
+        meta: json["meta"] == null ? null : Meta.fromJson(json["meta"]),
+        success: json["success"],
+        status: json["status"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "data": List<dynamic>.from(brands!.map((x) => x.toJson())),
-    "meta": meta == null ? null : meta!.toJson(),
-    "success": success,
-    "status": status,
-  };
+        "data": List<dynamic>.from(brands!.map((x) => x.toJson())),
+        "meta": meta == null ? null : meta!.toJson(),
+        "success": success,
+        "status": status,
+      };
 }
 
 class Brands {
@@ -52,20 +53,20 @@ class Brands {
   BrandsLinks? links;
 
   factory Brands.fromJson(Map<String, dynamic> json) => Brands(
-    name: json["name"],
-    slug: json["slug"],
-    id: json["id"],
-    logo: json["logo"],
-    links: BrandsLinks.fromJson(json["links"]),
-  );
+        name: json["name"],
+        slug: json["slug"],
+        id: json["id"],
+        logo: json["logo"],
+        links: BrandsLinks.fromJson(json["links"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "name": name,
-    "slug": slug,
-    "id": id,
-    "logo": logo,
-    "links": links!.toJson(),
-  };
+        "name": name,
+        "slug": slug,
+        "id": id,
+        "logo": logo,
+        "links": links!.toJson(),
+      };
 }
 
 class BrandsLinks {
@@ -76,15 +77,13 @@ class BrandsLinks {
   String? products;
 
   factory BrandsLinks.fromJson(Map<String, dynamic> json) => BrandsLinks(
-    products: json["products"],
-  );
+        products: json["products"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "products": products,
-  };
+        "products": products,
+      };
 }
-
-
 
 class Meta {
   Meta({
@@ -106,22 +105,22 @@ class Meta {
   int? total;
 
   factory Meta.fromJson(Map<String, dynamic> json) => Meta(
-    currentPage: json["current_page"],
-    from: json["from"],
-    lastPage: json["last_page"],
-    path: json["path"],
-    perPage: json["per_page"],
-    to: json["to"],
-    total: json["total"],
-  );
+        currentPage: json["current_page"],
+        from: json["from"],
+        lastPage: json["last_page"],
+        path: json["path"],
+        perPage: json["per_page"],
+        to: json["to"],
+        total: json["total"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "current_page": currentPage,
-    "from": from,
-    "last_page": lastPage,
-    "path": path,
-    "per_page": perPage,
-    "to": to,
-    "total": total,
-  };
+        "current_page": currentPage,
+        "from": from,
+        "last_page": lastPage,
+        "path": path,
+        "per_page": perPage,
+        "to": to,
+        "total": total,
+      };
 }

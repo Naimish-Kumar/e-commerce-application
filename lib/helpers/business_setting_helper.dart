@@ -7,7 +7,6 @@ class BusinessSettingHelper {
     List<BusinessSettingListResponse> businessLists =
         await BusinessSettingRepository().getBusinessSettingList();
 
-
     businessLists.forEach((element) {
       switch (element.type) {
         case 'facebook_login':

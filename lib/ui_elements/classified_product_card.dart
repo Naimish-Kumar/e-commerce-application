@@ -5,12 +5,12 @@ import 'package:active_ecommerce_flutter/my_theme.dart';
 import 'package:active_ecommerce_flutter/screens/classified_ads/classified_product_details.dart';
 import 'package:flutter/material.dart';
 class ClassifiedAdsCard extends StatefulWidget {
-  int? id;
-  String? image;
-  String slug;
-  String? name;
-  String? unit_price;
-  var condition;
+  final int? id;
+  final String? image;
+  final String slug;
+  final String? name;
+  final String? unit_price;
+  final  condition;
 
   ClassifiedAdsCard({Key? key,this.id, this.image,required this.slug, this.name,this.unit_price,this.condition}) : super(key: key);
 

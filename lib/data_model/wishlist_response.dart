@@ -62,7 +62,8 @@ class Product {
     this.name,
     this.thumbnail_image,
     this.base_price,
-    this.rating, this.slug,
+    this.rating,
+    this.slug,
   });
 
   int? id;

@@ -28,7 +28,6 @@ class AppConfig {
 
   @override
   String toString() {
-    // TODO: implement toString
     return super.toString();
   }
 }

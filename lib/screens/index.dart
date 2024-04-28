@@ -34,8 +34,8 @@ class _IndexState extends State<Index> {
     await system_currency.load();
     Provider.of<CurrencyPresenter>(context, listen: false).fetchListData();
 
-    // print("new splash screen ${app_mobile_language.$}");
-    // print("new splash screen app_language_rtl ${app_language_rtl.$}");
+    print("new splash screen ${app_mobile_language.$}");
+    print("new splash screen app_language_rtl ${app_language_rtl.$}");
 
     return app_mobile_language.$;
 
@@ -43,7 +43,6 @@ class _IndexState extends State<Index> {
 
   @override
   void initState() {
-    // TODO: implement initState
     getSharedValueHelperData().then((value){
       Future.delayed(Duration(seconds: 3)).then((value) {
         SystemConfig.isShownSplashScreed = true;
@@ -64,7 +63,6 @@ class _IndexState extends State<Index> {
         setState(() {
 
         });
-        // Navigator.pu
       }
       );
     });

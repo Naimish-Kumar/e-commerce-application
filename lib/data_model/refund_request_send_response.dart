@@ -4,9 +4,11 @@
 
 import 'dart:convert';
 
-RefundRequestSendResponse refundRequestSendResponseFromJson(String str) => RefundRequestSendResponse.fromJson(json.decode(str));
+RefundRequestSendResponse refundRequestSendResponseFromJson(String str) =>
+    RefundRequestSendResponse.fromJson(json.decode(str));
 
-String refundRequestSendResponseToJson(RefundRequestSendResponse data) => json.encode(data.toJson());
+String refundRequestSendResponseToJson(RefundRequestSendResponse data) =>
+    json.encode(data.toJson());
 
 class RefundRequestSendResponse {
   RefundRequestSendResponse({
@@ -17,13 +19,14 @@ class RefundRequestSendResponse {
   bool? result;
   String? message;
 
-  factory RefundRequestSendResponse.fromJson(Map<String, dynamic> json) => RefundRequestSendResponse(
-    result: json["result"],
-    message: json["message"],
-  );
+  factory RefundRequestSendResponse.fromJson(Map<String, dynamic> json) =>
+      RefundRequestSendResponse(
+        result: json["result"],
+        message: json["message"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "result": result,
-    "message": message,
-  };
+        "result": result,
+        "message": message,
+      };
 }

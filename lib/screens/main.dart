@@ -26,7 +26,6 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   int _currentIndex = 0;
-  //int _cartCount = 0;
 
   BottomAppbarIndex bottomAppbarIndex = BottomAppbarIndex();
 
@@ -55,7 +54,7 @@ class _MainState extends State<Main> {
     setState(() {
       _currentIndex = i;
     });
-    //print("i$i");
+    print("i$i");
   }
 
   getCartCount() async {
@@ -77,14 +76,13 @@ class _MainState extends State<Main> {
       Profile()
     ];
     fetchAll();
-    // TODO: implement initState
     //re appear statusbar in case it was not there in the previous page
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     super.initState();
   }
 
-  Future<bool> willPop()  async {
+  Future<bool> willPop() async {
     print(_currentIndex);
     if (_currentIndex != 0) {
       fetchAll();
@@ -99,10 +97,10 @@ class _MainState extends State<Main> {
         builder: (BuildContext context) {
           return Directionality(
             textDirection:
-            app_language_rtl.$! ? TextDirection.rtl : TextDirection.ltr,
+                app_language_rtl.$! ? TextDirection.rtl : TextDirection.ltr,
             child: AlertDialog(
-              content: Text(
-                  AppLocalizations.of(context)!.do_you_want_close_the_app),
+              content:
+                  Text(AppLocalizations.of(context)!.do_you_want_close_the_app),
               actions: [
                 TextButton(
                     onPressed: () {
@@ -122,7 +120,6 @@ class _MainState extends State<Main> {
       return shouldPop;
     }
     return Future.value(false);
-    return widget.go_back;
   }
 
   @override

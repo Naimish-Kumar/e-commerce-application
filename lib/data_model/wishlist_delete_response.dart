@@ -5,9 +5,11 @@
 
 import 'dart:convert';
 
-WishlistDeleteResponse wishlistDeleteResponseFromJson(String str) => WishlistDeleteResponse.fromJson(json.decode(str));
+WishlistDeleteResponse wishlistDeleteResponseFromJson(String str) =>
+    WishlistDeleteResponse.fromJson(json.decode(str));
 
-String wishlistDeleteResponseToJson(WishlistDeleteResponse data) => json.encode(data.toJson());
+String wishlistDeleteResponseToJson(WishlistDeleteResponse data) =>
+    json.encode(data.toJson());
 
 class WishlistDeleteResponse {
   WishlistDeleteResponse({
@@ -18,13 +20,14 @@ class WishlistDeleteResponse {
   bool? result;
   String? message;
 
-  factory WishlistDeleteResponse.fromJson(Map<String, dynamic> json) => WishlistDeleteResponse(
-    result: json["result"],
-    message: json["message"],
-  );
+  factory WishlistDeleteResponse.fromJson(Map<String, dynamic> json) =>
+      WishlistDeleteResponse(
+        result: json["result"],
+        message: json["message"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "result": result,
-    "message": message,
-  };
+        "result": result,
+        "message": message,
+      };
 }

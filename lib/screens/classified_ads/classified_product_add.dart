@@ -30,8 +30,6 @@ class _ClassifiedProductAddState extends State<ClassifiedProductAdd> {
   bool _generalExpanded = true;
   bool _mediaExpanded = false;
   bool _priceExpanded = false;
-  bool _descriptionExpanded = false;
-  final FocusNode _focusNode = FocusNode();
   bool _hasFocus = false;
 
   // controllers
@@ -179,7 +177,7 @@ class _ClassifiedProductAddState extends State<ClassifiedProductAdd> {
     });
     // description is up there
     if (productDescriptionKey.currentState != null) {
-      description = await productDescriptionKey.currentState!.getText() ?? "";
+      description = await productDescriptionKey.currentState!.getText();
       // description = await productDescriptionKey.currentState!.getText() ?? "";
     }
 

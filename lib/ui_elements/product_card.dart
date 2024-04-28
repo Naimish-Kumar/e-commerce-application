@@ -8,16 +8,16 @@ import '../helpers/shared_value_helper.dart';
 import '../screens/auction_products_details.dart';
 
 class ProductCard extends StatefulWidget {
-  var identifier;
-  int? id;
-  String slug;
-  String? image;
-  String? name;
-  String? main_price;
-  String? stroked_price;
-  bool? has_discount;
-  bool? is_wholesale;
-  var discount;
+ final  identifier;
+ final int? id;
+ final String slug;
+ final String? image;
+ final String? name;
+ final String? main_price;
+ final String? stroked_price;
+ final bool? has_discount;
+ final bool? is_wholesale;
+ final  discount;
 
   ProductCard({
     Key? key,
@@ -121,6 +121,7 @@ class _ProductCardState extends State<ProductCard> {
                     Padding(
                       padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
                       child: Text(
+                        // ignore: unnecessary_null_comparison
                         SystemConfig.systemCurrency! != null
                             ? widget.main_price!.replaceAll(
                                 SystemConfig.systemCurrency!.code!,

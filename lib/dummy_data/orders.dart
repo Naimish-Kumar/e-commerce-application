@@ -42,7 +42,6 @@ final List<Order> orderList = [
       delivery_status: "on_delivery",
       delivery_status_string: "On Delivery",
       amount: "\$33654410.00"),
-
   Order(
       code: "20201215-12034564",
       date: "15-12-2020",
@@ -67,7 +66,6 @@ final List<Order> orderList = [
       delivery_status: "on_delivery",
       delivery_status_string: "On Delivery",
       amount: "\$33654410.00"),
-
   Order(
       code: "20201215-12034564",
       date: "15-12-2020",

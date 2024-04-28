@@ -1,16 +1,14 @@
-
 import 'package:active_ecommerce_flutter/app_config.dart';
 import 'package:active_ecommerce_flutter/custom/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class Captcha extends StatefulWidget {
-  Function callback;
-  Function? handleCaptcha;
-  bool isIOS;
+  final Function callback;
+  final Function? handleCaptcha;
+  final bool isIOS;
 
-
-  Captcha(this.callback,{this.handleCaptcha,this.isIOS=false});
+  Captcha(this.callback, {this.handleCaptcha, this.isIOS = false});
 
   @override
   State<StatefulWidget> createState() {
@@ -20,19 +18,17 @@ class Captcha extends StatefulWidget {
 
 class CaptchaState extends State<Captcha> {
   WebViewController _webViewController = WebViewController();
-  double zoomValue =2;
+  double zoomValue = 2;
 
   @override
   initState() {
-    if(widget.isIOS){
-      zoomValue=0.5;
+    if (widget.isIOS) {
+      zoomValue = 0.5;
     }
 
     google_recaptcha();
     super.initState();
   }
-
-
 
   google_recaptcha() {
     _webViewController
@@ -40,32 +36,34 @@ class CaptchaState extends State<Captcha> {
       ..setBackgroundColor(const Color(0x00000000))
       ..enableZoom(false)
       ..loadHtmlString(html(AppConfig.BASE_URL)).then((value) {
-        _webViewController..addJavaScriptChannel(
-        'Captcha',
-        onMessageReceived: (JavaScriptMessage message) {
-        //This is where you receive message from
-        //javascript code and handle in Flutter/Dart
-        //like here, the message is just being printed
-        //in Run/LogCat window of android studio
-        //print(message.message);
-        widget.callback(message.message);
-        //Navigator.of(context).pop();
-        },
-        )
-          ..addJavaScriptChannel('CaptchaShowValidation', onMessageReceived: (JavaScriptMessage message) {
-        //This is where you receive message from
-        //javascript code and handle in Flutter/Dart
-        //like here, the message is just being printed
-        //in Run/LogCat window of android studio
-        print("message.message");
-        bool value = message.message=="true";
-        widget.handleCaptcha!(value);
-        // widget.callback(message.message);
-        //Navigator.of(context).pop();
-        },);
+        _webViewController
+          ..addJavaScriptChannel(
+            'Captcha',
+            onMessageReceived: (JavaScriptMessage message) {
+              //This is where you receive message from
+              //javascript code and handle in Flutter/Dart
+              //like here, the message is just being printed
+              //in Run/LogCat window of android studio
+              //print(message.message);
+              widget.callback(message.message);
+              //Navigator.of(context).pop();
+            },
+          )
+          ..addJavaScriptChannel(
+            'CaptchaShowValidation',
+            onMessageReceived: (JavaScriptMessage message) {
+              //This is where you receive message from
+              //javascript code and handle in Flutter/Dart
+              //like here, the message is just being printed
+              //in Run/LogCat window of android studio
+              print("message.message");
+              bool value = message.message == "true";
+              widget.handleCaptcha!(value);
+              // widget.callback(message.message);
+              //Navigator.of(context).pop();
+            },
+          );
       });
-
-
   }
 
   @override

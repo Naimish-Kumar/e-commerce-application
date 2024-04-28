@@ -27,7 +27,8 @@ class SingleProduct {
       this.in_user_wishlist,
       this.club_point,
       this.seller,
-      this.is_inhouse_product,this.description});
+      this.is_inhouse_product,
+      this.description});
 }
 
 class Seller {
@@ -133,4 +134,5 @@ SingleProduct singleProduct = SingleProduct(
     has_disocunt: true,
     club_point: 120.00,
     seller: seller,
-    is_inhouse_product: true,description: description);
+    is_inhouse_product: true,
+    description: description);

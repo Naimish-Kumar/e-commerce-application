@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:active_ecommerce_flutter/screens/product_details.dart';
 
 class ListProductCard extends StatefulWidget {
-  int? id;
-  String slug;
-  String? image;
-  String? name;
-  String? main_price;
-  String? stroked_price;
-  bool? has_discount;
+  final int? id;
+  final String slug;
+  final String? image;
+  final String? name;
+  final String? main_price;
+  final String? stroked_price;
+  final bool? has_discount;
 
   ListProductCard(
       {Key? key,

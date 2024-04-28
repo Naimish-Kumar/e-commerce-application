@@ -1,7 +1,3 @@
-
-
-class OthersHelper{
-  setPickupPoint(){
-    
-  }
+class OthersHelper {
+  setPickupPoint() {}
 }

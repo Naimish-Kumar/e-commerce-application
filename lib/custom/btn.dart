@@ -12,7 +12,8 @@ class Btn {
     //if (width != null && height != null)
     return TextButton(
       style: TextButton.styleFrom(
-          foregroundColor: MyTheme.noColor, padding: padding,
+          foregroundColor: MyTheme.noColor,
+          padding: padding,
           backgroundColor: color,
           minimumSize: minWidth == null ? null : Size(minWidth.toDouble(), 10),
           shape: shape),
@@ -30,7 +31,6 @@ class Btn {
       dynamic onPressed}) {
     return TextButton(
       style: TextButton.styleFrom(
-
           foregroundColor: MyTheme.noColor,
           minimumSize: Size(minWidth.toDouble(), height.toDouble()),
           backgroundColor: onPressed != null ? color : MyTheme.grey_153,
@@ -42,10 +42,16 @@ class Btn {
   }
 
   static Widget maxWidthFixHeight(
-      {required maxWidth, required height, color, shape, required child, dynamic onPressed}) {
+      {required maxWidth,
+      required height,
+      color,
+      shape,
+      required child,
+      dynamic onPressed}) {
     return TextButton(
       style: TextButton.styleFrom(
-          foregroundColor: MyTheme.noColor, maximumSize: Size(maxWidth, height),
+          foregroundColor: MyTheme.noColor,
+          maximumSize: Size(maxWidth, height),
           backgroundColor: color,
           shape: shape),
       child: child,

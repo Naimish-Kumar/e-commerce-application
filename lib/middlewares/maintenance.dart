@@ -11,7 +11,9 @@ class MaintenanceMiddleware extends Middleware {
   bool next(http.Response response) {
     try {
       var jsonData = jsonDecode(response.body);
-      if (jsonData.runtimeType!=List && jsonData['result']!=null && !jsonData['result']) {
+      if (jsonData.runtimeType != List &&
+          jsonData['result'] != null &&
+          !jsonData['result']) {
         if (jsonData.containsKey("status") &&
             jsonData['status'] == "maintenance") {
           OneContext().addOverlay(

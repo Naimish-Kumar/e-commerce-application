@@ -61,10 +61,12 @@ main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    systemNavigationBarDividerColor: Colors.transparent,
-  ));
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarDividerColor: Colors.transparent,
+    ),
+  );
 
   runApp(
     SharedValue.wrapApp(
@@ -230,8 +232,6 @@ var routes = GoRouter(
 );
 
 class MyApp extends StatefulWidget {
-  // This widget is the root of your application.
-
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -239,23 +239,17 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void deactivate() {
-    // print("deactivate");
-    // TODO: implement deactivate
     super.deactivate();
   }
 
   @override
   void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
-    // print("didChangeDependencies");
     super.didChangeDependencies();
   }
 
   @override
   void initState() {
-    routes.routerDelegate.addListener(() {
-      // print("objectobject");
-    });
+    routes.routerDelegate.addListener(() {});
 
     /*bc = Widget Function(context,Container(),onGenerateRoute: (route){
       print("data ${route.name}");
@@ -266,11 +260,8 @@ class _MyAppState extends State<MyApp> {
     },
       initialRoute: "/"
     );*/
-    routes.routeInformationProvider.addListener(() {
-      // print("123123");
-    });
+    routes.routeInformationProvider.addListener(() {});
     super.initState();
-    //print("Type of ${bc.runtimeType}");
     Future.delayed(Duration.zero).then(
       (value) async {
         Firebase.initializeApp().then((value) {
@@ -286,7 +277,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => LocaleProvider()),

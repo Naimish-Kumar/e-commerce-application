@@ -6,7 +6,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 class HtmlContentWebView extends StatefulWidget {
    HtmlContentWebView({super.key,required this.html});
-  String html;
+ final  String html;
 
   @override
   State<HtmlContentWebView> createState() => _HtmlContentWebViewState();

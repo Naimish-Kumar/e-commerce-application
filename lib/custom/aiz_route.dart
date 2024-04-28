@@ -8,15 +8,15 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class AIZRoute {
-  static  final  otpRoute = Otp(title: "Verify your account",);
-
-
+  static final otpRoute = Otp(
+    title: "Verify your account",
+  );
 
   static Future<T?> push<T extends Object?>(
       BuildContext context, Widget route) {
-    if ( _isMailVerifiedRoute(route)) {
+    if (_isMailVerifiedRoute(route)) {
       return Navigator.push(
-          context, MaterialPageRoute(builder: (context) =>otpRoute ));
+          context, MaterialPageRoute(builder: (context) => otpRoute));
     }
     return Navigator.push(
         context, MaterialPageRoute(builder: (context) => route));
@@ -24,10 +24,8 @@ class AIZRoute {
 
   static Future<T?> slideLeft<T extends Object?>(
       BuildContext context, Widget route) {
-
-    if ( _isMailVerifiedRoute(route)) {
-      return Navigator.push(
-          context,_leftTransition<T>(otpRoute));
+    if (_isMailVerifiedRoute(route)) {
+      return Navigator.push(context, _leftTransition<T>(otpRoute));
     }
 
     return Navigator.push(context, _leftTransition<T>(route));
@@ -35,9 +33,8 @@ class AIZRoute {
 
   static Future<T?> slideRight<T extends Object?>(
       BuildContext context, Widget route) {
-    if ( _isMailVerifiedRoute(route)) {
-      return Navigator.push(
-          context,_rightTransition<T>(otpRoute));
+    if (_isMailVerifiedRoute(route)) {
+      return Navigator.push(context, _rightTransition<T>(otpRoute));
     }
     return Navigator.push(context, _rightTransition<T>(route));
   }
@@ -46,7 +43,8 @@ class AIZRoute {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var begin =!(app_language_rtl.$!) ? Offset(-1.0, 0.0):Offset(1.0, 0.0);
+        var begin =
+            !(app_language_rtl.$!) ? Offset(-1.0, 0.0) : Offset(1.0, 0.0);
         const end = Offset.zero;
         const curve = Curves.ease;
 
@@ -80,16 +78,17 @@ class AIZRoute {
     );
   }
 
- static rightTransition(Widget page) {
+  static rightTransition(Widget page) {
     return CustomTransitionPage(
-      child:page,
+      child: page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-       var  begin = !(app_language_rtl.$!) ? Offset(1.0, 0.0):Offset(-1.0, 0.0);
+        var begin =
+            !(app_language_rtl.$!) ? Offset(1.0, 0.0) : Offset(-1.0, 0.0);
         const end = Offset.zero;
         const curve = Curves.ease;
 
         var tween =
-        Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
         return SlideTransition(
           position: animation.drive(tween),
@@ -100,17 +99,14 @@ class AIZRoute {
   }
 
   static bool _isMailVerifiedRoute(Widget widget) {
-bool mailVerifiedRoute =false;
-    mailVerifiedRoute = <Type>[
-      SelectAddress,
-      Address,
-      Profile
-    ].any((element) => widget.runtimeType == element);
-    if (is_logged_in.$  && mailVerifiedRoute && SystemConfig.systemUser!=null) {
-      return  !(SystemConfig.systemUser!.emailVerified??true);
+    bool mailVerifiedRoute = false;
+    mailVerifiedRoute = <Type>[SelectAddress, Address, Profile]
+        .any((element) => widget.runtimeType == element);
+    if (is_logged_in.$ &&
+        mailVerifiedRoute &&
+        SystemConfig.systemUser != null) {
+      return !(SystemConfig.systemUser!.emailVerified ?? true);
     }
     return false;
   }
-
-
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-abstract class RouteMiddleware{
+abstract class RouteMiddleware {
   Widget next();
 }

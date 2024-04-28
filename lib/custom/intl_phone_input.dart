@@ -226,7 +226,7 @@ class _InputWidgetState extends State<CustomInternationalPhoneNumberInput> {
               phoneNumber: phoneNumber,
               isoCode: this.country?.alpha2Code,
               dialCode: this.country?.dialCode));
-        
+
           if (widget.onInputValidated != null) {
             widget.onInputValidated!(false);
           }
@@ -236,7 +236,7 @@ class _InputWidgetState extends State<CustomInternationalPhoneNumberInput> {
               phoneNumber: phoneNumber,
               isoCode: this.country?.alpha2Code,
               dialCode: this.country?.dialCode));
-        
+
           if (widget.onInputValidated != null) {
             widget.onInputValidated!(true);
           }
@@ -308,7 +308,7 @@ class _InputWidgetState extends State<CustomInternationalPhoneNumberInput> {
       if (isValid) {
         setState(() {
           this.selectorButtonBottomPadding =
-              widget.selectorButtonOnErrorPadding ?? 24;
+              widget.selectorButtonOnErrorPadding;
         });
       } else {
         setState(() {
@@ -593,7 +593,7 @@ class CustomSelectorButton extends StatelessWidget {
     return showModalBottomSheet(
       context: context,
       clipBehavior: Clip.hardEdge,
-      isScrollControlled: isScrollControlled ?? true,
+      isScrollControlled: isScrollControlled,
       backgroundColor: Colors.transparent,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(

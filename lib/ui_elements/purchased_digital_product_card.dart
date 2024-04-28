@@ -2,10 +2,10 @@ import 'dart:io';
 import 'dart:isolate';
 import 'dart:ui';
 
-import 'package:active_ecommerce_flutter/app_config.dart';
+
 import 'package:active_ecommerce_flutter/custom/box_decorations.dart';
 import 'package:active_ecommerce_flutter/custom/toast_component.dart';
-import 'package:active_ecommerce_flutter/helpers/shared_value_helper.dart';
+
 import 'package:active_ecommerce_flutter/my_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
@@ -15,9 +15,9 @@ import 'package:toast/toast.dart';
 
 class PurchasedDigitalProductCard extends StatefulWidget
     with WidgetsBindingObserver {
-  int? id;
-  String? image;
-  String? name;
+ final int? id;
+ final String? image;
+ final String? name;
 
   PurchasedDigitalProductCard({Key? key, this.id, this.image, this.name})
       : super(key: key);
@@ -43,8 +43,6 @@ class _PurchasedDigitalProductCardState
 
   @override
   void initState() {
-    var k = IsolateNameServer.registerPortWithName(
-        _port.sendPort, 'downloader_send_port');
 
     _port.listen(
       (dynamic data) {
@@ -138,19 +136,19 @@ class _PurchasedDigitalProductCardState
     var folder = await createFolder();
     print("folder $folder");
     try {
-      String? _taskid = await FlutterDownloader.enqueue(
-          url: AppConfig.BASE_URL + "/purchased-products/download/${widget.id}",
-          saveInPublicStorage: false,
-          savedDir: folder,
-          showNotification: true,
-          headers: {
-            "Authorization": "Bearer ${access_token.$}",
-            "System-Key": AppConfig.system_key
-          });
+      // String? _taskid = await FlutterDownloader.enqueue(
+      //     url: AppConfig.BASE_URL + "/purchased-products/download/${widget.id}",
+      //     saveInPublicStorage: false,
+      //     savedDir: folder,
+      //     showNotification: true,
+      //     headers: {
+      //       "Authorization": "Bearer ${access_token.$}",
+      //       "System-Key": AppConfig.system_key
+      //     });
     } on Exception catch (e) {
       print("e.toString()");
       print(e.toString());
-      // TODO
+      
     }
   }
 

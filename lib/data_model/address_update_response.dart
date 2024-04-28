@@ -4,9 +4,11 @@
 
 import 'dart:convert';
 
-AddressUpdateResponse addressUpdateResponseFromJson(String str) => AddressUpdateResponse.fromJson(json.decode(str));
+AddressUpdateResponse addressUpdateResponseFromJson(String str) =>
+    AddressUpdateResponse.fromJson(json.decode(str));
 
-String addressUpdateResponseToJson(AddressUpdateResponse data) => json.encode(data.toJson());
+String addressUpdateResponseToJson(AddressUpdateResponse data) =>
+    json.encode(data.toJson());
 
 class AddressUpdateResponse {
   AddressUpdateResponse({
@@ -17,13 +19,14 @@ class AddressUpdateResponse {
   bool? result;
   String? message;
 
-  factory AddressUpdateResponse.fromJson(Map<String, dynamic> json) => AddressUpdateResponse(
-    result: json["result"],
-    message: json["message"],
-  );
+  factory AddressUpdateResponse.fromJson(Map<String, dynamic> json) =>
+      AddressUpdateResponse(
+        result: json["result"],
+        message: json["message"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "result": result,
-    "message": message,
-  };
+        "result": result,
+        "message": message,
+      };
 }

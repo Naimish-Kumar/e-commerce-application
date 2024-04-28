@@ -5,9 +5,10 @@ import 'package:active_ecommerce_flutter/custom/box_decorations.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class ShimmerHelper {
-
- Widget buildBasicShimmer(
-      {double height = double.infinity, double width = double.infinity,double radius =6}) {
+  Widget buildBasicShimmer(
+      {double height = double.infinity,
+      double width = double.infinity,
+      double radius = 6}) {
     return Shimmer.fromColors(
       baseColor: MyTheme.shimmer_base,
       highlightColor: MyTheme.shimmer_highlighted,
@@ -18,22 +19,25 @@ class ShimmerHelper {
       ),
     );
   }
+
   Widget buildBasicShimmerCustomRadius(
-      {double height = double.infinity, double? width = double.infinity,  BorderRadius radius = BorderRadius.zero,Color color = Colors.grey}) {
+      {double height = double.infinity,
+      double? width = double.infinity,
+      BorderRadius radius = BorderRadius.zero,
+      Color color = Colors.grey}) {
     return Shimmer.fromColors(
-      baseColor:color,
+      baseColor: color,
       highlightColor: MyTheme.shimmer_highlighted,
       child: Container(
         height: height,
         width: width,
-        decoration:BoxDecoration(
-          borderRadius: radius,
-          color: MyTheme.shimmer_base
-        ),
+        decoration:
+            BoxDecoration(borderRadius: radius, color: MyTheme.shimmer_base),
       ),
     );
   }
-  buildListShimmer({item_count = 10,item_height = 100.0}) {
+
+  buildListShimmer({item_count = 10, item_height = 100.0}) {
     return ListView.builder(
       itemCount: item_count,
       scrollDirection: Axis.vertical,
@@ -50,29 +54,25 @@ class ShimmerHelper {
   }
 
   buildProductGridShimmer({scontroller, item_count = 10}) {
-
     return MasonryGridView.count(
         crossAxisCount: 2,
         mainAxisSpacing: 14,
         crossAxisSpacing: 14,
         itemCount: item_count,
         shrinkWrap: true,
-        padding: EdgeInsets.only(top:20.0,bottom: 10,left: 18,right:18),
+        padding: EdgeInsets.only(top: 20.0, bottom: 10, left: 18, right: 18),
         physics: NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return Shimmer.fromColors(
             baseColor: MyTheme.shimmer_base,
             highlightColor: MyTheme.shimmer_highlighted,
             child: Container(
-              height: (index +1) % 2 != 0 ? 250 : 300,
+              height: (index + 1) % 2 != 0 ? 250 : 300,
               width: double.infinity,
               decoration: BoxDecorations.buildBoxDecoration_1(),
             ),
           );
-        }
-    );
-
-
+        });
   }
 
   buildSquareGridShimmer({scontroller, item_count = 10}) {
@@ -104,8 +104,13 @@ class ShimmerHelper {
     );
   }
 
-  buildHorizontalGridShimmerWithAxisCount({item_count = 10, int crossAxisCount = 2 , crossAxisSpacing = 10.0,  mainAxisSpacing = 10.0,mainAxisExtent = 100.0 ,controller}) {
-
+  buildHorizontalGridShimmerWithAxisCount(
+      {item_count = 10,
+      int crossAxisCount = 2,
+      crossAxisSpacing = 10.0,
+      mainAxisSpacing = 10.0,
+      mainAxisExtent = 100.0,
+      controller}) {
     return GridView.builder(
         padding: const EdgeInsets.all(16),
         scrollDirection: Axis.horizontal,
@@ -115,8 +120,7 @@ class ShimmerHelper {
             crossAxisCount: crossAxisCount,
             crossAxisSpacing: crossAxisSpacing,
             mainAxisSpacing: 10,
-            mainAxisExtent:mainAxisExtent
-        ),
+            mainAxisExtent: mainAxisExtent),
         itemBuilder: (context, index) {
           return Shimmer.fromColors(
             baseColor: MyTheme.shimmer_base,
@@ -130,7 +134,10 @@ class ShimmerHelper {
         });
   }
 
-  buildSeparatedHorizontalListShimmer({double separationWidth = 16.0,int itemCount = 10,double itemHeight = 120}){
+  buildSeparatedHorizontalListShimmer(
+      {double separationWidth = 16.0,
+      int itemCount = 10,
+      double itemHeight = 120}) {
     return ListView.separated(
       padding: const EdgeInsets.all(16.0),
       separatorBuilder: (context, index) => SizedBox(
@@ -138,9 +145,8 @@ class ShimmerHelper {
       ),
       itemCount: itemCount,
       scrollDirection: Axis.horizontal,
-
-      physics: const BouncingScrollPhysics(
-          parent: AlwaysScrollableScrollPhysics()),
+      physics:
+          const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
       itemBuilder: (context, index) {
         return Shimmer.fromColors(
           baseColor: MyTheme.shimmer_base,

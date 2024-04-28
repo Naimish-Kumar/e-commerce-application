@@ -19,15 +19,13 @@ import 'package:active_ecommerce_flutter/repositories/api-request.dart';
 
 class PaymentRepository {
   Future<dynamic> getPaymentResponseList({mode = "", list = "both"}) async {
-    String url =
-        ("${AppConfig.BASE_URL}/payment-types?mode=$mode&list=$list");
+    String url = ("${AppConfig.BASE_URL}/payment-types?mode=$mode&list=$list");
 
     final response = await ApiRequest.get(
         url: url,
         headers: {
           "App-Language": app_language.$!,
           "Authorization": "Bearer ${access_token.$}",
-          "App-Language": app_language.$!,
         },
         middleware: BannedUser());
 
@@ -116,8 +114,7 @@ class PaymentRepository {
     return orderCreateResponseFromJson(response.body);
   }
 
-  Future<dynamic> getOrderCreateResponseFromManualPayment(
-      paymentMethod) async {
+  Future<dynamic> getOrderCreateResponseFromManualPayment(paymentMethod) async {
     var postBody = jsonEncode(
         {"user_id": "${user_id.$}", "payment_type": "$paymentMethod"});
 
@@ -258,11 +255,8 @@ class PaymentRepository {
     return bkashPaymentProcessResponseFromJson(response.body);
   }
 
-  Future<SslcommerzBeginResponse> getSslcommerzBeginResponse(
-      String paymentType,
-      int? combinedOrderId,
-      var packageId,
-      double? amount) async {
+  Future<SslcommerzBeginResponse> getSslcommerzBeginResponse(String paymentType,
+      int? combinedOrderId, var packageId, double? amount) async {
     String url =
         ("${AppConfig.BASE_URL}/sslcommerz/begin?payment_type=$paymentType&combined_order_id=$combinedOrderId&amount=$amount&user_id=${user_id.$}&package_id=$packageId");
 

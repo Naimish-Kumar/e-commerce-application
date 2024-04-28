@@ -46,7 +46,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class ProductDetails extends StatefulWidget {
-  String slug;
+  final String slug;
 
   ProductDetails({Key? key, required this.slug}) : super(key: key);
 
@@ -1814,18 +1814,19 @@ class _ProductDetailsState extends State<ProductDetails>
               interactive: false,
               child: Wrap(
                 children: List.generate(
-                    choiceOptions[choiceOptionsIndex].options.length,
-                    (index) => Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Container(
-                          width: 75,
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: buildChoiceItem(
-                              choiceOptions[choiceOptionsIndex]
-                                  .options[index],
-                              choiceOptionsIndex,
-                              index),
-                        ))),
+                  choiceOptions[choiceOptionsIndex].options.length,
+                  (index) => Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Container(
+                      width: 75,
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: buildChoiceItem(
+                          choiceOptions[choiceOptionsIndex].options[index],
+                          choiceOptionsIndex,
+                          index),
+                    ),
+                  ),
+                ),
               ),
 
               /*ListView.builder(

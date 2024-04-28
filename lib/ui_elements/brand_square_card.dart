@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:active_ecommerce_flutter/screens/brand_products.dart';
 import 'package:active_ecommerce_flutter/custom/box_decorations.dart';
 class BrandSquareCard extends StatefulWidget {
-  int? id;
-  String slug;
-  String? image;
-  String? name;
+  final int? id;
+  final String slug;
+  final String? image;
+  final String? name;
 
   BrandSquareCard({Key? key, this.id,this.image,required this.slug, this.name}) : super(key: key);
 

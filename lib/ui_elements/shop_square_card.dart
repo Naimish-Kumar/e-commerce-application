@@ -5,11 +5,11 @@ import 'package:active_ecommerce_flutter/screens/seller_details.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ShopSquareCard extends StatefulWidget {
-  int? id;
-  String? image;
-  String shopSlug;
-  String? name;
-  double? stars;
+  final int? id;
+  final String? image;
+  final String shopSlug;
+  final String? name;
+  final double? stars;
 
   ShopSquareCard({Key? key,this.id, this.image, this.name,this.stars,required this.shopSlug}) : super(key: key);
 

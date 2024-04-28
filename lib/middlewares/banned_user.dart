@@ -9,11 +9,12 @@ class BannedUser extends Middleware {
   @override
   bool next(http.Response response) {
     var jsonData = jsonDecode(response.body);
-    if (jsonData.runtimeType!=List && jsonData.containsKey("result") && !jsonData['result']) {
-      if (jsonData.containsKey("status") &&
-          jsonData['status'] == "banned") {
+    if (jsonData.runtimeType != List &&
+        jsonData.containsKey("result") &&
+        !jsonData['result']) {
+      if (jsonData.containsKey("status") && jsonData['status'] == "banned") {
         AuthHelper().clearUserData();
-        if(SystemConfig.context !=null) {
+        if (SystemConfig.context != null) {
           SystemConfig.context!.go('/');
         }
 

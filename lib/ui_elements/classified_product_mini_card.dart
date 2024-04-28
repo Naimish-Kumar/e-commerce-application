@@ -4,12 +4,12 @@ import 'package:active_ecommerce_flutter/screens/classified_ads/classified_produ
 import 'package:flutter/material.dart';
 import 'package:active_ecommerce_flutter/custom/box_decorations.dart';
 class ClassifiedMiniProductCard extends StatefulWidget {
-  int? id;
-  String? image;
-  String slug;
-  String? name;
-  String? unit_price;
-  var condition;
+  final int? id;
+  final String? image;
+  final String slug;
+  final String? name;
+  final String? unit_price;
+  final  condition;
 
   ClassifiedMiniProductCard({Key? key,this.id, required this.slug,this.image, this.name,this.unit_price,this.condition}) : super(key: key);
 

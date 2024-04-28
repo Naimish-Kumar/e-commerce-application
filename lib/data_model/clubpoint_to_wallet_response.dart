@@ -4,9 +4,11 @@
 
 import 'dart:convert';
 
-ClubpointToWalletResponse clubpointToWalletResponseFromJson(String str) => ClubpointToWalletResponse.fromJson(json.decode(str));
+ClubpointToWalletResponse clubpointToWalletResponseFromJson(String str) =>
+    ClubpointToWalletResponse.fromJson(json.decode(str));
 
-String clubpointToWalletResponseToJson(ClubpointToWalletResponse data) => json.encode(data.toJson());
+String clubpointToWalletResponseToJson(ClubpointToWalletResponse data) =>
+    json.encode(data.toJson());
 
 class ClubpointToWalletResponse {
   ClubpointToWalletResponse({
@@ -17,13 +19,14 @@ class ClubpointToWalletResponse {
   bool? result;
   String? message;
 
-  factory ClubpointToWalletResponse.fromJson(Map<String, dynamic> json) => ClubpointToWalletResponse(
-    result: json["result"],
-    message: json["message"],
-  );
+  factory ClubpointToWalletResponse.fromJson(Map<String, dynamic> json) =>
+      ClubpointToWalletResponse(
+        result: json["result"],
+        message: json["message"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "result": result,
-    "message": message,
-  };
+        "result": result,
+        "message": message,
+      };
 }

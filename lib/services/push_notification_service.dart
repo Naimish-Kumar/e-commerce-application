@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:active_ecommerce_flutter/screens/order_details.dart';
 import 'package:active_ecommerce_flutter/screens/login.dart';
 import 'package:active_ecommerce_flutter/helpers/shared_value_helper.dart';
-import 'package:active_ecommerce_flutter/repositories/profile_repository.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:one_context/one_context.dart';
 import 'package:active_ecommerce_flutter/custom/toast_component.dart';
@@ -48,8 +47,8 @@ class PushNotificationService {
       // print(fcmToken);
       if (is_logged_in.$ == true) {
         // update device token
-        var deviceTokenUpdateResponse =
-            await ProfileRepository().getDeviceTokenUpdateResponse(fcmToken);
+        // var deviceTokenUpdateResponse =
+        //     await ProfileRepository().getDeviceTokenUpdateResponse(fcmToken);
       }
     }
 
